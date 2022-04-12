@@ -16,6 +16,7 @@ namespace Business.Interfaces
         Group GetGroup(string name);
 
         List<Group> GetAll();
+        void AddStudent(Student stu);
 
     }
 }

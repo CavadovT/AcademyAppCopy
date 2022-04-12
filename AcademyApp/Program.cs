@@ -1,4 +1,5 @@
-﻿using Business.Services;
+﻿using AcademyApp.Controllers;
+using Business.Services;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -6,20 +7,26 @@ using Utilities.Helper;
 
 namespace AcademyApp
 {
+    
     public class Program
     {
         static void Main(string[] args)
         {
-            GroupService groupService = new GroupService(); 
-            Notifications.Print(ConsoleColor.Green, "Welcome");
-
+           
+            GroupController groupcontroller = new GroupController();
+            StudentController studentController = new StudentController();  
             do
             {
                 Notifications.Print(ConsoleColor.Cyan, "1-Creat Group\n" +
                     "2-Update Group\n" +
                     "3-Remove Group\n" +
-                    "4-Get Group" +
-                    "5-Get All Groups");
+                    "4-Get Group\n" +
+                    "5-Get All Groups\n" +
+                    "6-Add Student\n" +
+                    "7-Update Student\n" +
+                    "8-Remove Student\n" +
+                    "9-Get Student\n" +
+                    "10-Get All student\n");
                 string num = Console.ReadLine();
                 int input;
 
@@ -30,47 +37,23 @@ namespace AcademyApp
                     switch (input)
                     {
 
-                        case 1:
-                        EnterName:
-                            Console.Write("Please enter the name of Group");
-                            string name = Console.ReadLine();
-                            Console.Write("Please enter the size of group");
-                            string groupSize = Console.ReadLine();
-                            int size;
-
-                            bool isSize = int.TryParse(groupSize, out size);
-                            if (isSize)
-                            {
-                                Group group = new Group
-                                {
-                                    Name = name,
-                                    MaxSize = size,
-                                };
-
-                              groupService.Create(group);
-                                Notifications.Print(ConsoleColor.Green, $"{group.Name} created");
-                            }
-                            else
-                            {
-                                Notifications.Print(ConsoleColor.Red, "Enter Name");
-                                goto EnterName;
-                            }
-
+                        case (int)Enumss.MenuBar.Creat_Group:
+                              groupcontroller.CreatGroup();
                             break;
                         case 2:
+
                             break;
                         case 3:
                             break;
                         case 4:
                             break;
                         case 5:
-                            List<Group> list = groupService.GetAll();
-                            foreach (var item in list)
-                            {
-                                Notifications.Print(ConsoleColor.Yellow, $"{item.Name}");
-                            }
+                           groupcontroller.GetAllGroups();
                             break;
                         case 6:
+
+                            studentController.CreatStudent();   
+
                             break;
                     }
 

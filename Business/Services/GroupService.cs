@@ -4,6 +4,7 @@ using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Utilities.Helper;
 
 namespace Business.Services
 {
@@ -29,6 +30,12 @@ namespace Business.Services
             _groupRepository=new GroupRepository();
 
         }
+        public void AddStudent(Student student) 
+        {
+        _groupRepository.AddStudent(student);
+
+            Console.WriteLine($"{student.Name}added to{_groupRepository.GetOne().Name}");
+        }
         public Group Create(Group group)
         {
             group.Id = Count;
@@ -36,11 +43,18 @@ namespace Business.Services
             return group;
             
         }
-
         public Group Delete(int id)
         {
-            throw new NotImplementedException();
+            Group isExist = _groupRepository.GetOne(g => g.Id == id);
+            if (isExist == null)
+            {
+                return null;
+            }
+            _groupRepository.Delete(isExist);
+            return isExist;
         }
+
+
 
         public Group GetGroup(string name)
         {
@@ -49,12 +63,15 @@ namespace Business.Services
 
         public Group Update(int id, Group group)
         {
-            throw new NotImplementedException();
+            return group;
+           
         }
 
         public List<Group> GetAll()
         {
           return _groupRepository.GetAll();
         }
+
+      
     }
 }
