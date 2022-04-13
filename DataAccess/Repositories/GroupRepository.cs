@@ -10,19 +10,19 @@ namespace DataAccess.Repositories
 {
     public class GroupRepository : IRepository<Group>
     {
-        public void AddStudent(Student stu) 
-        {
-            try
-            {
-                Group.Students.Add(stu);
-            }
-            catch (Exception)
-            {
+        //public void AddStudentToGroup(Student stu) 
+        //{
+        //    try
+        //    {
+        //        Group.Students.Add(stu);
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
+        //        throw;
+        //    }
         
-        }
+        //}
         public bool Create(Group entity)
         {
             try

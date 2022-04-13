@@ -9,6 +9,7 @@ namespace Entities.Models
     {
         public string  Name { get; set; }
         public string Surname  { get; set; }
+        public string GroupName { get; set; }
         public int Id { get; set; }
     }
 }

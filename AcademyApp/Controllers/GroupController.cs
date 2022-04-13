@@ -122,7 +122,7 @@ namespace AcademyApp.Controllers
                 {
                     Name = groupnewname,
                 };
-                Notifications.Print(ConsoleColor.Green, $"{groupService.Update(id, grnew).Name}");
+                Notifications.Print(ConsoleColor.Green, $"{groupService.Update(id, grnew).Name}updated");
             }
 
 
@@ -147,11 +147,12 @@ namespace AcademyApp.Controllers
             else
             {
                 id = int.Parse(inputid);
-                Notifications.Print(ConsoleColor.Green, $"{groupService.Delete(id).Name}");
+                Notifications.Print(ConsoleColor.Green, $"{groupService.Delete(id).Name}deleted");
             }
            
 
         }
+        
         #endregion
 
 

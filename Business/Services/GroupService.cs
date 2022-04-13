@@ -30,12 +30,12 @@ namespace Business.Services
             _groupRepository=new GroupRepository();
 
         }
-        public void AddStudent(Student student) 
-        {
-        _groupRepository.AddStudent(student);
+        //public void AddStudent(Student student) 
+        //{
+        //_groupRepository.AddStudentToGroup(student);
 
-            Console.WriteLine($"{student.Name}added to{_groupRepository.GetOne().Name}");
-        }
+        //    Console.WriteLine($"{student.Name}added to{_groupRepository.GetOne().Name}");
+        //}
         public Group Create(Group group)
         {
             group.Id = Count;
@@ -97,5 +97,6 @@ namespace Business.Services
             _groupRepository.GetOne();
             return isExit;
         }
+
     }
 }

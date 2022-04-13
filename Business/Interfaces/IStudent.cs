@@ -13,7 +13,8 @@ namespace Business.Interfaces
 
         Student Delete(int id);
 
-        Student GetGroup(string name);
+        Student GetStudentBYName(string name);
+        Student GetStudentByID(int id);
 
         List<Student> GetAll();
     }

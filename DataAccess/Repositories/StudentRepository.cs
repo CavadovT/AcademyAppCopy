@@ -42,8 +42,8 @@ namespace DataAccess.Repositories
         {
             try
             {
-                
-               return DataContext.Students.FindAll(filter);
+
+                return filter == null ? DataContext.Students: DataContext.Students.FindAll(filter);
 
             }
             catch (Exception)
