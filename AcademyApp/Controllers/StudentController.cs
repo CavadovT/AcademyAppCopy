@@ -11,9 +11,8 @@ namespace AcademyApp.Controllers
     {
         public void CreatStudent()
         {
-            StudentService studentService = new StudentService();
-            GroupService groupService = new GroupService(); 
-
+            
+           
             Console.Write("Please enter the name of Student: ");
             string name = Console.ReadLine();
             Console.Write("Please enter the Surname of Student: ");
@@ -23,7 +22,6 @@ namespace AcademyApp.Controllers
                 Name = name,
                 Surname = surname,
             };
-            groupService.AddStudent(student);
             Console.WriteLine($"{student.Name}created");
        
         }

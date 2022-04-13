@@ -14,25 +14,28 @@ namespace AcademyApp
         {
            
             GroupController groupcontroller = new GroupController();
-            StudentController studentController = new StudentController();  
+            StudentController studentController = new StudentController();
+            Notifications.Print(ConsoleColor.Blue, "===Welcome===");
             do
             {
+            Menu:
                 Notifications.Print(ConsoleColor.Cyan, "1-Creat Group\n" +
                     "2-Update Group\n" +
                     "3-Remove Group\n" +
-                    "4-Get Group\n" +
-                    "5-Get All Groups\n" +
-                    "6-Add Student\n" +
-                    "7-Update Student\n" +
-                    "8-Remove Student\n" +
-                    "9-Get Student\n" +
-                    "10-Get All student\n");
-                string num = Console.ReadLine();
+                    "4-Get Group by id\n" +
+                    "5-Get Group by name\n"+
+                    "6-Get All Groups\n" +
+                    "7-Add Student\n" +
+                    "8-Update Student\n" +
+                    "9-Remove Student\n" +
+                    "10-Get Student\n" +
+                    "11-Get All student\n" +
+                    "0-Exit");
+               string num = Console.ReadLine();
                 int input;
 
                 bool IsNum = int.TryParse(num, out input);
-
-                if (IsNum && input < 7 && input > 0)
+                if(IsNum&&input>=0&&input<=11)
                 {
                     switch (input)
                     {
@@ -40,23 +43,38 @@ namespace AcademyApp
                         case (int)Enumss.MenuBar.Creat_Group:
                               groupcontroller.CreatGroup();
                             break;
-                        case 2:
-
+                        case (int)Enumss.MenuBar.Update_Group:
+                            groupcontroller.UpdateGroup();
                             break;
-                        case 3:
+                        case (int)Enumss.MenuBar.Remove_Group:
+                            groupcontroller.DeletGroup();
                             break;
-                        case 4:
+                        case (int)Enumss.MenuBar.Get_Group_BY_ID:
+                            groupcontroller.GetOneGroupbyId();
                             break;
-                        case 5:
-                           groupcontroller.GetAllGroups();
+                        case (int)Enumss.MenuBar.GET_GROUP_BY_NAME:
+                            groupcontroller.GetOneGroupbyName();
                             break;
-                        case 6:
-
-                            studentController.CreatStudent();   
-
+                        case (int)Enumss.MenuBar.Get_All_Groups:
+                            groupcontroller.GetAllGroups();
                             break;
+                        case (int)Enumss.MenuBar.Add_Student:
+                            //groupcontroller.GetAllGroups();
+                            //Console.WriteLine("Hansi groupa elave etmek isteyirsini? enter the name of group:");
+                            //string namegroup=Console.ReadLine();
+                            //if(namegroup==)
+                            //studentController.CreatStudent();   
+                            break;
+                        case (int)Enumss.MenuBar.Exit_Is_Program:
+                            return;
                     }
 
+                }
+                else
+                {
+                    Console.Clear();
+                    Notifications.Print(ConsoleColor.Red, $"Error: Plase change the correctly case for menyu");
+                    goto Menu;
                 }
 
             } while (true);

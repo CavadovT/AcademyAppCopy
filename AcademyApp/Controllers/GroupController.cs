@@ -55,7 +55,103 @@ namespace AcademyApp.Controllers
                 Notifications.Print(ConsoleColor.Yellow, $"{item.Name}");
             }
         }
+        public void GetOneGroupbyName() 
+        {
+            M1:
+            Console.WriteLine("Please enter the group name for Search:");
+            string name = Console.ReadLine();
+            if (string.IsNullOrEmpty(name)) 
+            {
+                Notifications.Print(ConsoleColor.Red, $"Group name deosn't null or empty");
+                goto M1;
+            }
+            else
+            {
+                Notifications.Print(ConsoleColor.Yellow, $"{groupService.GetGroup(name).Name}");
 
+            }
+         
+            
+        }
+        public void GetOneGroupbyId() 
+        {
+        M1:
+            Console.WriteLine("Please enter the group id for Search:");
+            string idinput = Console.ReadLine();
+            int id;
+            if (string.IsNullOrEmpty(idinput))
+            {
+                Notifications.Print(ConsoleColor.Red, $"Group id deosn't null or empty");
+                goto M1;
+            }
+            else if (!int.TryParse(idinput, out id)) 
+            {
+                Notifications.Print(ConsoleColor.Red, $"Group id should be digit");
+                goto M1;
+            }
+            else
+            {
+                id=int.Parse(idinput);
+                Notifications.Print(ConsoleColor.Yellow, $"{groupService.GetGroupById(id).Name}");
+
+            }
+
+        }
+        public void UpdateGroup()
+        {
+            M1:
+            Console.WriteLine("Please enter the group id for Search:");
+            string idinput = Console.ReadLine();
+            int id;
+            Console.WriteLine("Please enter the Group's new name: ");
+            string groupnewname=Console.ReadLine();
+            if (string.IsNullOrEmpty(idinput))
+            {
+                Notifications.Print(ConsoleColor.Red, $"Group id deosn't null or empty");
+                goto M1;
+            }
+            else if (!int.TryParse(idinput, out id))
+            {
+                Notifications.Print(ConsoleColor.Red, $"Group id should be digit");
+                goto M1;
+            }
+            else 
+            {
+                id = int.Parse(idinput);
+                Group grnew = new Group()
+                {
+                    Name = groupnewname,
+                };
+                Notifications.Print(ConsoleColor.Green, $"{groupService.Update(id, grnew).Name}");
+            }
+
+
+
+        }
+        public void DeletGroup()
+        {
+            D1:
+            Console.WriteLine("Please enter the group id for delete");
+            string inputid=Console.ReadLine();
+            int id;
+            if (string.IsNullOrEmpty(inputid)) 
+            {
+                Notifications.Print(ConsoleColor.Red, $"Group id doesn't null or empty!!!");
+                goto D1;
+            }
+            else if(!int.TryParse(inputid,out id))
+            {
+                Notifications.Print(ConsoleColor.Red, $"Group id should be digit!!!");
+                goto D1;
+            }
+            else
+            {
+                id = int.Parse(inputid);
+                Notifications.Print(ConsoleColor.Green, $"{groupService.Delete(id).Name}");
+            }
+           
+
+        }
         #endregion
 
 

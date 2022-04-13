@@ -17,7 +17,7 @@ namespace Utilities.Helper
                     "10-Get All student\n");*/
        public enum MenuBar
         {
-            Creat_Group = 1, Update_Group, Remove_Group, Get_Group, Get_All_Groups,
+            Creat_Group = 1, Update_Group, Remove_Group, Get_Group_BY_ID,GET_GROUP_BY_NAME, Get_All_Groups,
             Add_Student, Update_Student, Remove_Student, Get_student, Get_All_student, Exit_Is_Program=0
         }
 

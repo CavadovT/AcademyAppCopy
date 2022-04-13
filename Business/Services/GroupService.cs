@@ -58,12 +58,27 @@ namespace Business.Services
 
         public Group GetGroup(string name)
         {
-            throw new NotImplementedException();
+           Group isExit=_groupRepository.GetOne(g => g.Name == name);
+           if (isExit==null)
+            {
+                return null;
+            }
+            _groupRepository.GetOne();
+            return isExit;
+
         }
 
         public Group Update(int id, Group group)
         {
+            Group isExist=_groupRepository.GetOne(g => g.Id == id);
+            if (isExist==null) 
+            {
+                return null;
+            }
+            isExist.Name = group.Name;
+            _groupRepository.Update(group);
             return group;
+           
            
         }
 
@@ -72,6 +87,15 @@ namespace Business.Services
           return _groupRepository.GetAll();
         }
 
-      
+        public Group GetGroupById(int id)
+        {
+            Group isExit = _groupRepository.GetOne(g => g.Id == id);
+            if (isExit == null)
+            {
+                return null;
+            }
+            _groupRepository.GetOne();
+            return isExit;
+        }
     }
 }
