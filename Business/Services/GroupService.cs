@@ -45,6 +45,7 @@ namespace Business.Services
             if (isExist == null)
             {
                 Notifications.Print(ConsoleColor.Red, "Not Found Group!!!");
+                return null;
             }
             _groupRepository.Delete(isExist);
             return isExist;
@@ -58,6 +59,7 @@ namespace Business.Services
            if (isExit==null)
             {
                 Notifications.Print(ConsoleColor.Red, "Not Found Group!!!");
+                return null ;
             }
             _groupRepository.GetOne();
             return isExit;
@@ -70,6 +72,7 @@ namespace Business.Services
             if (isExist==null) 
             {
                 Notifications.Print(ConsoleColor.Red, "Not Found Group!!!");
+                return null;
             }
             isExist.Name = group.Name;
             _groupRepository.Update(group);
@@ -89,6 +92,7 @@ namespace Business.Services
             if (isExit == null)
             {
                 Notifications.Print(ConsoleColor.Red, "Not Found Group!!!");
+                return null ;
 
             }
             _groupRepository.GetOne();

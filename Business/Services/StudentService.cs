@@ -46,6 +46,7 @@ namespace Business.Services
             if (isExist == null)
             {
                 Notifications.Print(ConsoleColor.Red, "Not Found Student!!!");
+                return null;
             }
             _studentRepository.Delete(isExist);
             return isExist;
@@ -58,6 +59,7 @@ namespace Business.Services
             if (isExist == null)
             {
                 Notifications.Print(ConsoleColor.Red, "Not Found Student!!!");
+                return null;
             }
             isExist.Name = student.Name;
             _studentRepository.Update(student);
@@ -77,6 +79,7 @@ namespace Business.Services
             if (isExit == null)
             {
                 Notifications.Print(ConsoleColor.Red, "Not Found Student!!!");
+                return null;
             }
             _studentRepository.GetOne();
             return isExit;
@@ -88,6 +91,7 @@ namespace Business.Services
             if (isExit == null)
             {
                 Notifications.Print(ConsoleColor.Red, "Not Found Student!!!");
+                return null;
             }
             _studentRepository.GetOne();
             return isExit;
@@ -99,6 +103,7 @@ namespace Business.Services
             if (isExit == null)
             {
                 Notifications.Print(ConsoleColor.Red, "Not Found Student!!!");
+                return null;
             }
             _studentRepository.GetOne();
             return isExit;

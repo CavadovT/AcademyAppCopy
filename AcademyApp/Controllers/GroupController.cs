@@ -81,6 +81,8 @@ namespace AcademyApp.Controllers
             else
             {
             M1:
+                Notifications.Print(ConsoleColor.Cyan, "All groups");
+                GetAllGroups();
                 Console.WriteLine("Please enter the group name for Search:");
                 string name = Console.ReadLine();
                 if (string.IsNullOrEmpty(name))
@@ -105,6 +107,8 @@ namespace AcademyApp.Controllers
             else
             {
             M1:
+                Notifications.Print(ConsoleColor.Cyan, "All groups");
+                GetAllGroups();
                 Console.WriteLine("Please enter the group id for Search:");
                 string idinput = Console.ReadLine();
                 int id;
@@ -138,6 +142,8 @@ namespace AcademyApp.Controllers
             else
             {
             M1:
+                Notifications.Print(ConsoleColor.Cyan, "All groups");
+                GetAllGroups();
                 Console.WriteLine("Please enter the group id for Search:");
                 string idinput = Console.ReadLine();
                 int id;
@@ -173,7 +179,10 @@ namespace AcademyApp.Controllers
             }
             else
             {
+                
             D1:
+                Notifications.Print(ConsoleColor.Cyan, "All groups");
+                GetAllGroups();
                 Console.WriteLine("Please enter the group id for delete");
                 string inputid = Console.ReadLine();
                 int id;

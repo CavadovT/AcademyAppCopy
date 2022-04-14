@@ -61,7 +61,7 @@ namespace AcademyApp.Controllers
                     }
                     else
                     {
-                        Notifications.Print(ConsoleColor.Red, "Group maximumdur yeni qrup yaradin");
+                        Notifications.Print(ConsoleColor.Red, "this Group is maximum add to any group");
                     }
 
                 }
@@ -93,6 +93,8 @@ namespace AcademyApp.Controllers
             else
             {
             M1:
+                Notifications.Print(ConsoleColor.Cyan, "All student");
+                GetAllStudents();
                 Console.WriteLine("Please enter the student name for Search:");
                 string name = Console.ReadLine();
                 if (string.IsNullOrEmpty(name))
@@ -102,10 +104,8 @@ namespace AcademyApp.Controllers
                 }
                 else
                 {
-                    Notifications.Print(ConsoleColor.Yellow, $"{studentService.GetStudentBYName(name).Id}--" +
-                        $"{studentService.GetStudentBYName(name).Name}" +
-                        $"{studentService.GetStudentBYName(name).Surname}" +
-                        $"{studentService.GetStudentBYName(name).GroupName}");
+                    studentService.GetStudentBYName(name);
+                   
 
                 }
 
@@ -121,6 +121,8 @@ namespace AcademyApp.Controllers
             {
 
             M1:
+                Notifications.Print(ConsoleColor.Cyan, "All student");
+                GetAllStudents();
                 Console.WriteLine("Please enter the student id for Search:");
                 string idinput = Console.ReadLine();
                 int id;
@@ -137,13 +139,9 @@ namespace AcademyApp.Controllers
                 else
                 {
                     id = int.Parse(idinput);
-                    Notifications.Print(ConsoleColor.Yellow, $"{studentService.GetStudentByID(id).Name}");
-
+                   studentService.GetStudentByID(id);
                 }
-
             }
-
-
         }
         public void UpdateStudentInfo()
         {
@@ -154,6 +152,8 @@ namespace AcademyApp.Controllers
             else
             {
             M1:
+                Notifications.Print(ConsoleColor.Cyan, "All student");
+                GetAllStudents();
                 Console.WriteLine("Please enter the studen id for Search:");
                 string idinput = Console.ReadLine();
                 int id;
@@ -179,7 +179,7 @@ namespace AcademyApp.Controllers
                         Name = studentname,
                         Surname = studentsurname,
                     };
-                    Notifications.Print(ConsoleColor.Green, $"{studentService.Update(id, stunewname).Name}success!!!");
+                    studentService.Update(id, stunewname);
                 }
 
             }
@@ -194,6 +194,8 @@ namespace AcademyApp.Controllers
             {
 
             D1:
+                Notifications.Print(ConsoleColor.Cyan, "All student");
+                GetAllStudents();
                 Console.WriteLine("Please enter the student id for delete");
                 string inputid = Console.ReadLine();
                 int id;
@@ -210,7 +212,7 @@ namespace AcademyApp.Controllers
                 else
                 {
                     id = int.Parse(inputid);
-                    Notifications.Print(ConsoleColor.Green, $"{studentService.Delete(id).Name} deleted");
+                    studentService.Delete(id);
                 }
 
 
