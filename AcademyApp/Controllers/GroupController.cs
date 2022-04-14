@@ -66,7 +66,7 @@ namespace AcademyApp.Controllers
             {
                 foreach (var item in groupService.GetAll())
                 {
-                    Notifications.Print(ConsoleColor.Yellow, $"{item.Id}--{item.Name}");
+                    Notifications.Print(ConsoleColor.Yellow, $"ID: {item.Id}---GroupName: {item.Name}");
                 }
 
             }

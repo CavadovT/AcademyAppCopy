@@ -30,7 +30,6 @@ namespace AcademyApp.Controllers
                 int Count=0;
                 foreach (var item in DataContext.Groups)
                 {
-                    Console.WriteLine(item.Name);
                     if (item.Name == groupName)
                     {
                         IsExistName = true;
@@ -44,7 +43,7 @@ namespace AcademyApp.Controllers
                 }
                 if (!IsExistName) 
                 {
-                    Notifications.Print(ConsoleColor.Red, "Bu adda qrup yoxdur!!!");
+                    Notifications.Print(ConsoleColor.Red, $"There is no group with {groupName} name in the list!!!");
                 }
                 else
                 {
@@ -71,24 +70,24 @@ namespace AcademyApp.Controllers
         }
         public void GetAllStudents()
         {
-            if (DataContext.Groups.Count == 0)
+            if (DataContext.Students.Count == 0)
             {
-                Notifications.Print(ConsoleColor.Red, "Error: You have creat group the first!!!");
+                Notifications.Print(ConsoleColor.Red, "Error: You have creat student the first!!!");
             }
             else
             {
                 foreach (var item in studentService.GetAll())
                 {
-                    Notifications.Print(ConsoleColor.Yellow, $"{item.Id}--{item.Name}--{item.Surname}--{item.GroupName}");
+                    Notifications.Print(ConsoleColor.Yellow, $"ID: {item.Id}--Name: {item.Name}--Surname: {item.Surname}--GroupName: {item.GroupName}");
                 }
             }
            
         }
         public void GetOneStudentbyName()
         {
-            if (DataContext.Groups.Count == 0)
+            if (DataContext.Students.Count == 0)
             {
-                Notifications.Print(ConsoleColor.Red, "Error: You have creat group the first!!!");
+                Notifications.Print(ConsoleColor.Red, "Error: You have creat student the first!!!");
             }
             else
             {
@@ -113,9 +112,9 @@ namespace AcademyApp.Controllers
         }
         public void GetOneStudentbyId()
         {
-            if (DataContext.Groups.Count == 0)
+            if (DataContext.Students.Count == 0)
             {
-                Notifications.Print(ConsoleColor.Red, "Error: You have creat group the first!!!");
+                Notifications.Print(ConsoleColor.Red, "Error: You have creat student the first!!!");
             }
             else
             {
@@ -145,9 +144,9 @@ namespace AcademyApp.Controllers
         }
         public void UpdateStudentInfo()
         {
-            if (DataContext.Groups.Count == 0)
+            if (DataContext.Students.Count == 0)
             {
-                Notifications.Print(ConsoleColor.Red, "Error: You have creat group the first!!!");
+                Notifications.Print(ConsoleColor.Red, "Error: You have creat student the first!!!");
             }
             else
             {
@@ -186,9 +185,9 @@ namespace AcademyApp.Controllers
         }
         public void DeleteStudent()
         {
-            if (DataContext.Groups.Count == 0)
+            if (DataContext.Students.Count == 0)
             {
-                Notifications.Print(ConsoleColor.Red, "Error: You have creat group the first!!!");
+                Notifications.Print(ConsoleColor.Red, "Error: You have creat student the first!!!");
             }
             else
             {
@@ -219,7 +218,6 @@ namespace AcademyApp.Controllers
             }
 
         }
-
 
     }
 }
