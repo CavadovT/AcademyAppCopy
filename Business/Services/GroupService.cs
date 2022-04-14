@@ -30,15 +30,11 @@ namespace Business.Services
             _groupRepository=new GroupRepository();
 
         }
-        //public void AddStudent(Student student) 
-        //{
-        //_groupRepository.AddStudentToGroup(student);
-
-        //    Console.WriteLine($"{student.Name}added to{_groupRepository.GetOne().Name}");
-        //}
+        
         public Group Create(Group group)
         {
             group.Id = Count;
+            Count++;
             _groupRepository.Create(group);
             return group;
             
@@ -48,7 +44,7 @@ namespace Business.Services
             Group isExist = _groupRepository.GetOne(g => g.Id == id);
             if (isExist == null)
             {
-                return null;
+                Notifications.Print(ConsoleColor.Red, "Not Found Group!!!");
             }
             _groupRepository.Delete(isExist);
             return isExist;
@@ -56,12 +52,12 @@ namespace Business.Services
 
 
 
-        public Group GetGroup(string name)
+        public Group GetGroupByName(string name)
         {
            Group isExit=_groupRepository.GetOne(g => g.Name == name);
            if (isExit==null)
             {
-                return null;
+                Notifications.Print(ConsoleColor.Red, "Not Found Group!!!");
             }
             _groupRepository.GetOne();
             return isExit;
@@ -73,7 +69,7 @@ namespace Business.Services
             Group isExist=_groupRepository.GetOne(g => g.Id == id);
             if (isExist==null) 
             {
-                return null;
+                Notifications.Print(ConsoleColor.Red, "Not Found Group!!!");
             }
             isExist.Name = group.Name;
             _groupRepository.Update(group);
@@ -92,11 +88,11 @@ namespace Business.Services
             Group isExit = _groupRepository.GetOne(g => g.Id == id);
             if (isExit == null)
             {
-                return null;
+                Notifications.Print(ConsoleColor.Red, "Not Found Group!!!");
+
             }
             _groupRepository.GetOne();
             return isExit;
         }
-
     }
 }

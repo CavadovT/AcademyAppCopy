@@ -10,7 +10,7 @@ namespace Entities.Models
        
         public string  Name { get; set; }
         public int MaxSize { get; set; }
-        public int Id { get; set; }
-
+        public  int Id { get; set; }
+       
     }
 }

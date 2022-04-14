@@ -4,6 +4,7 @@ using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Utilities.Helper;
 
 namespace Business.Services
 {
@@ -34,6 +35,7 @@ namespace Business.Services
         public Student Create(Student student)
         {
             student.Id = Count;
+            Count++;
             _studentRepository.Create(student);
             return student;
 
@@ -43,7 +45,7 @@ namespace Business.Services
             Student isExist = _studentRepository.GetOne(g => g.Id == id);
             if (isExist == null)
             {
-                return null;
+                Notifications.Print(ConsoleColor.Red, "Not Found Student!!!");
             }
             _studentRepository.Delete(isExist);
             return isExist;
@@ -55,7 +57,7 @@ namespace Business.Services
             Student isExist = _studentRepository.GetOne(g => g.Id == id);
             if (isExist == null)
             {
-                return null;
+                Notifications.Print(ConsoleColor.Red, "Not Found Student!!!");
             }
             isExist.Name = student.Name;
             _studentRepository.Update(student);
@@ -74,7 +76,7 @@ namespace Business.Services
             Student isExit = _studentRepository.GetOne(g => g.Id == id);
             if (isExit == null)
             {
-                return null;
+                Notifications.Print(ConsoleColor.Red, "Not Found Student!!!");
             }
             _studentRepository.GetOne();
             return isExit;
@@ -85,7 +87,7 @@ namespace Business.Services
             Student isExit = _studentRepository.GetOne(g => g.Name == name);
             if (isExit == null)
             {
-                return null;
+                Notifications.Print(ConsoleColor.Red, "Not Found Student!!!");
             }
             _studentRepository.GetOne();
             return isExit;
@@ -96,7 +98,7 @@ namespace Business.Services
             Student isExit = _studentRepository.GetOne(g => g.Id == id);
             if (isExit == null)
             {
-                return null;
+                Notifications.Print(ConsoleColor.Red, "Not Found Student!!!");
             }
             _studentRepository.GetOne();
             return isExit;

@@ -13,11 +13,11 @@ namespace Business.Interfaces
 
         Group Delete(int id);
 
-        Group GetGroup(string name);
+        Group GetGroupByName(string name);
         Group GetGroupById(int id);
 
         List<Group> GetAll();
-       // void AddStudent(Student stu);
+       
 
     }
 }
