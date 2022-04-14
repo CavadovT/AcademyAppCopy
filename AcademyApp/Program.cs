@@ -33,53 +33,58 @@ namespace AcademyApp
                 int input;
 
                 bool IsNum = int.TryParse(num, out input);
-                if (IsNum && input >= 0 && input <= 13)
+                if (IsNum && input >= 0 && input <= 12)
                 {
                     switch (input)
                     {
 
                         case (int)Enumss.MenuBar.Creat_Group:
+                            Console.Clear();
                             groupcontroller.CreatGroup();
                             break;
                         case (int)Enumss.MenuBar.Update_Group:
+                            Console.Clear();
                             groupcontroller.UpdateGroup();
                             break;
                         case (int)Enumss.MenuBar.Remove_Group:
+                            Console.Clear();
                             groupcontroller.DeletGroup();
                             break;
                         case (int)Enumss.MenuBar.Get_Group_By_Id:
+                            Console.Clear();
                             groupcontroller.GetOneGroupbyId();
                             break;
                         case (int)Enumss.MenuBar.Get_Group_By_Name:
+                            Console.Clear();
                             groupcontroller.GetOneGroupbyName();
                             break;
                         case (int)Enumss.MenuBar.Get_All_Groups:
+                            Console.Clear();
                             groupcontroller.GetAllGroups();
                             break;
-                        case (int)Enumss.MenuBar.Add_Student: 
+                        case (int)Enumss.MenuBar.Add_Student:
+                            Console.Clear();
                             studentController.AddStudent();
                             break;
                         case (int)Enumss.MenuBar.Update_Student_Info:
+                            Console.Clear();
                             studentController.UpdateStudentInfo();
                             break;
                         case (int)Enumss.MenuBar.Remove_Student:
+                            Console.Clear();
                             studentController.DeleteStudent();
                             break;
                         case (int)Enumss.MenuBar.Get_Student_By_Id:
+                            Console.Clear();
                             studentController.GetOneStudentbyId();
                                 break;
                         case (int)Enumss.MenuBar.Get_Student_By_Name:
+                            Console.Clear();
                             studentController.GetOneStudentbyName();
                             break;
                             case (int)Enumss.MenuBar.Get_All_Students:
-                                studentController.GetAllStudents();
-                            break;
-                        case 13:
-                            //groupcontroller.GetAllGroups();
-                            //Console.WriteLine("Hansi groupa elave etmek isteyirsini? enter the name of group:");
-                            //string namegroup=Console.ReadLine();
-                            //if(namegroup==)
-                            //studentController.CreatStudent();  
+                            Console.Clear();
+                            studentController.GetAllStudents();
                             break;
                         case (int)Enumss.MenuBar.Exit_Is_Program:
                             return;
